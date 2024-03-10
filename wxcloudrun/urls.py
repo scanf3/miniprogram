@@ -16,7 +16,7 @@ Including another URLconf
 
 from wxcloudrun import views
 from django.conf.urls import url
-from viewsets import auth_views
+from wxcloudrun.viewsets import auth_views
 
 urlpatterns = (
     # 计数器接口
