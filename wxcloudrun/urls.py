@@ -16,11 +16,13 @@ Including another URLconf
 
 from wxcloudrun import views
 from django.conf.urls import url
+from viewsets import auth_views
 
 urlpatterns = (
     # 计数器接口
-    url(r'^^api/count(/)?$', views.counter),
+    url(r'^api/count(/)?$', views.counter),
 
     # 获取主页
     url(r'(/)?$', views.index),
+    url(r'^auth/$', auth_views.get_auth)
 )

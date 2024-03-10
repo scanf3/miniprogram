@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import time
+from dotenv import load_dotenv
 
 CUR_PATH = os.path.dirname(os.path.realpath(__file__))  
 LOG_PATH = os.path.join(os.path.dirname(CUR_PATH), 'logs') # LOG_PATH是存放日志的路径
@@ -19,6 +20,14 @@ SECRET_KEY = 'django-insecure-_&03zc)d*3)w-(0grs-+t-0jjxktn7k%$3y6$9=x_n_ibg4js6
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+
+# set environment variables
+dotenv_file = '.env'
+
+load_dotenv(dotenv_file)
+
+
 
 # Application definition
 
