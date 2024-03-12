@@ -12,7 +12,7 @@ app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
 
-def get_auth(request, _):
+def get_auth(request):
     """
     获取用户权限
 
