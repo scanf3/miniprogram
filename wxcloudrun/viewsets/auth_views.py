@@ -18,6 +18,8 @@ def get_auth(request):
 
      `` request `` 请求对象
     """
+    logging.error(type(request))
+    logging.error(type(request.body))
     body = json.loads(request.body)
     logging.error(request.body)
     if 'token' not in body:
