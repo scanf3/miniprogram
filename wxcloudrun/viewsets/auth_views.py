@@ -11,6 +11,8 @@ wx_api_backend = os.environ["WX_API_BACKEND"]
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
+def decode_request_data(request):
+    return request.body.decode('utf-8')
 
 def get_auth(request):
     """
@@ -18,10 +20,8 @@ def get_auth(request):
 
      `` request `` 请求对象
     """
-    logging.error(type(request))
-    logging.error(type(request.body))
-    body = json.loads(request.body)
-    logging.error(request.body)
+    body = json.loads(decode_request_data(request))
+    logging.error(body)
     if 'token' not in body:
         return JsonResponse({'code': 0, 'data': '无token'})
     token = body['token']
