@@ -2,6 +2,9 @@ from datetime import datetime
 
 from django.db import models
 
+from wxcloudrun.common.constants import EntityStatus, EntityType
+from wxcloudrun.common.utils import create_field_choices
+
 
 # Create your models here.
 # class Counters(models.Model):
@@ -20,4 +23,12 @@ from django.db import models
 class AuthUser(models.Model):
     id = models.AutoField
     open_id = models.CharField(max_length=60, default='')
-    createdAt = models.DateTimeField(default=datetime.now())
+    createdAt = models.DateTimeField(auto_now_add=True)
+
+
+class Entity(models.Model):
+    id = models.AutoField
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=20, choices=create_field_choices(EntityStatus), default=EntityStatus.UNKNOWN)
+    type = models.CharField(max_length=20, choices=create_field_choices(EntityType))
