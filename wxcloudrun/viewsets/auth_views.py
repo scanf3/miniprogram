@@ -5,7 +5,7 @@ import os
 import requests
 from django.http import JsonResponse
 
-from wxcloudrun.models import AuthUser, Counters
+from wxcloudrun.models import AuthUser
 
 logger = logging.getLogger('log')
 
