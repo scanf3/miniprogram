@@ -19,8 +19,5 @@ from django.conf.urls import url
 from wxcloudrun.viewsets import auth_views
 
 urlpatterns = (
-    # 计数器接口
-    url(r'^api/count(/)?$', views.counter),
-
     url(r'^auth/$', auth_views.get_auth)
 )
