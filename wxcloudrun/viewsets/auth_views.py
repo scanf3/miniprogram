@@ -35,7 +35,7 @@ def get_auth(request):
     if res.status_code != 200:
         logger.error(f'获取用户信息失败:{res.text}')
         return JsonResponse({'code': 0, 'data': '用户信息请求失败'})
-    open_id = res.json()['open_id']
+    open_id = res.json()['openid']
     if AuthUser.objects.filter(open_id=open_id).exists():
         return JsonResponse({'code': 1, 'data': '请求成功'})
     else:
